@@ -2,6 +2,7 @@
 The model is aimed at photorealism.
 
 ## Deploy RealVisXL_V4.0_Lightning using Inferless:
+
 - Deployment of SG161222/RealVisXL_V4.0_Lightning model using [Diffusers](https://github.com/huggingface/diffusers).
 
 ---
@@ -34,66 +35,32 @@ After the create model step, while setting the configuration for the model make 
 
 Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
 
-The following is a sample Input and Output JSON for this model which you can use while importing this model on Inferless.
-
-### Input
-```json
-{
-  "inputs": [
-    {
-      "data": [
-        "Penguins having dinner"
-      ],
-      "name": "prompt",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
-
-### Output
-```json
-{
-  "outputs": [
-    {
-      "data": [
-        "Blank"
-      ],
-      "name": "generated_image_base64",
-      "shape": [
-        1
-      ],
-      "datatype": "BYTES"
-    }
-  ]
-}
-```
-
 ---
 ## Curl Command
 Following is an example of the curl command you can use to make inference. You can find the exact curl command in the Model's API page in Inferless.
 ```bash
 curl --location '<your_inference_url>' \
-          --header 'Content-Type: application/json' \
-          --header 'Authorization: Bearer <your_api_key>' \
-          --data '{
-              "inputs": [
-                {
-                  "data": [
-                    "Penguins having dinner"
-                  ],
-                  "name": "prompt",
-                  "shape": [
-                    1
-                  ],
-                  "datatype": "BYTES"
-                }
-              ]
-            }
-            '
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <your_api_key>' \
+--data '{
+  "inputs": [
+    {
+      "name": "prompt",
+      "shape": [1],
+      "data": ["movie still, ocean, island, (clouds:0.4), epic, film grain"],
+      "datatype": "BYTES"
+    },
+    {
+      "name": "negative_prompt",
+      "shape": [1],
+      "data": [
+        "(octane render, render, drawing, anime, bad photo, bad photography:1.3), (worst quality, low quality, blurry:1.2), (bad teeth, deformed teeth, deformed lips), (bad anatomy, bad proportions:1.1), (deformed iris, deformed pupils), (deformed eyes, bad eyes), (deformed face, ugly face, bad face), (deformed hands, bad hands, fused fingers), morbid, mutilated, mutation, disfigured"
+      ],
+      "datatype": "BYTES"
+    }
+  ]
+}'
+
 ```
 
 ---
