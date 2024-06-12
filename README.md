@@ -20,11 +20,15 @@ Get started by forking the repository. You can do this by clicking on the fork b
 
 This will create a copy of the repository in your own GitHub account, allowing you to make changes and customize it according to your needs.
 
-## Create a Custom Runtime in Inferless
+### Create a Custom Runtime in Inferless
 To access the custom runtime window in Inferless, simply navigate to the sidebar and click on the **Create new Runtime** button. A pop-up will appear.
 
 Next, provide a suitable name for your custom runtime and proceed by uploading the **config.yaml** file given above. Finally, ensure you save your changes by clicking on the save button.
 
+### Create a Volume in My Volumes 
+To access the my volumes window in Inferless, simply navigate to the sidebar and click on the **Create new Volume** button. A pop-up will appear.
+
+Copy the the mount path and keep it handly for step 4 of model import you will need to pass this as ENV variable. "VOLUME_NFS"
 
 ### Import the Model in Inferless
 Log in to your inferless account, select the workspace you want the model to be imported into and click the Add Model button.
