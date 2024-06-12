@@ -15,14 +15,15 @@ class InferlessPythonModel:
                                                       use_safetensors = True).to("cuda")
         self.pipe.scheduler = DPMSolverSinglestepScheduler.from_config(self.pipe.scheduler.config,
                                                                        use_karras_sigmas=True)
-        self.pipe = compile_pipe(self.pipe)
-        
-        
         
         
         if os.path.exists(self.compile_dir):
             print("LOADING THE PIPELINE",flush=True)
             load_pipe(self.pipe, dir=self.compile_dir)
+        else 
+            print("SAVING THE PIPELINE",flush=True)
+            self.pipe = compile_pipe(self.pipe)
+            save_pipe(self.pipe, dir=self.compile_dir)
  
 
     def infer(self, inputs):
@@ -33,9 +34,7 @@ class InferlessPythonModel:
                                  num_inference_steps=5,
                                  guidance_scale=1).images[0]
         
-        if not os.path.exists(self.compile_dir):
-            print("SAVING THE PIPELINE",flush=True)
-            save_pipe(self.pipe, dir=self.compile_dir)
+        
         
         buff = BytesIO()
         image_output.save(buff, format="JPEG")
