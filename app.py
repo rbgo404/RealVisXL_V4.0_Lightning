@@ -8,7 +8,8 @@ import os
 class InferlessPythonModel:
     def initialize(self):
         repo_id = "SG161222/RealVisXL_V4.0_Lightning"
-        VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
+        #VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
+        VOLUME_NFS = "/var/nfs-mount/REAL_VIS"
         self.compile_dir = f"{VOLUME_NFS}/cached_pipe"  # Construct model directory path
         
         self.pipe = DiffusionPipeline.from_pretrained( repo_id, torch_dtype=torch.float16,variant="fp16",
