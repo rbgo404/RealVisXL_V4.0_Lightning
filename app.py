@@ -23,6 +23,12 @@ class InferlessPythonModel:
         else 
             print("SAVING THE PIPELINE",flush=True)
             self.pipe = compile_pipe(self.pipe)
+            # Sample prompt 
+            prompt = "A horse near a beach"
+            image_output = self.pipe(prompt,
+                                 negative_prompt = negative_prompt,
+                                 num_inference_steps=5,
+                                 guidance_scale=1).images[0]
             save_pipe(self.pipe, dir=self.compile_dir)
  
 
