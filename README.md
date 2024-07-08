@@ -1,9 +1,5 @@
-# Model Template for RealVisXL_V4.0_Lightning
+# Deploy RealVisXL_V4.0_Lightning using Inferless
 The RealVisXL V4.0 Lightning is an image generation model for creating photorealistic images. This model was built on SDXL architecture. This new version offers enhanced realism and detail in generated images.
-
-## Deploy RealVisXL_V4.0_Lightning using Inferless:
-
-- Deployment of SG161222/RealVisXL_V4.0_Lightning model using [Diffusers](https://github.com/huggingface/diffusers).
 
 ---
 ## Prerequisites
