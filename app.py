@@ -1,9 +1,8 @@
 import torch
 from diffusers import DiffusionPipeline, DPMSolverSinglestepScheduler
-from onediffx import compile_pipe, save_pipe, load_pipe
+from onediffx import compile_pipe
 from io import BytesIO
 import base64
-import os
 
 class InferlessPythonModel:
     def initialize(self):
@@ -25,9 +24,7 @@ class InferlessPythonModel:
                                  negative_prompt = negative_prompt,
                                  num_inference_steps=5,
                                  guidance_scale=1).images[0]
-        
-        
-        
+         
         buff = BytesIO()
         image_output.save(buff, format="JPEG")
         img_str = base64.b64encode(buff.getvalue()).decode()
